@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="vaas-api-sdk",
+    name="vaas-sdk-python",
     version="1.0.0",
     description="vaas-sdk",
     author="yilan",
