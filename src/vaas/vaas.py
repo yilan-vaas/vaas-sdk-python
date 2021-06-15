@@ -8,18 +8,17 @@ class Vaas():
         self.tool = tools.Tools(udid)
         self.isplay = config.HOST_PROD_PLAY
         self.unplay = config.HOST_PROD
-        self.feedrelation = config.HOST_DEV
 
     def feed(self, video_type, channel_id, load_type=0, size=8):
         input = {'video_type': video_type, 'channel_id': channel_id, 'load_type': load_type, 'size': size}
         self.tool.set_input(input)
-        ret = self.tool.request_api(self.feedrelation + config.FEED)
+        ret = self.tool.request_api(self.unplay + config.FEED)
         return ret
 
     def relation(self, id, size=20):
         input = {'id': id, 'size': size}
         self.tool.set_input(input)
-        ret = self.tool.request_api(self.feedrelation + config.RELATION)
+        ret = self.tool.request_api(self.unplay + config.RELATION)
         return ret
 
     def channels(self):

@@ -18,7 +18,6 @@ PLAY = '/vaas/video/play'  # 播放
 # 以下常量不需要修改
 HOST_PROD = 'http://api.yilanvaas.cn'  # 线上正式域名(播放接口除外)
 HOST_PROD_PLAY = 'http://play.yilanvaas.cn'  # 线上正式域名(播放接口)
-HOST_DEV = 'http://testapi.yladm.com/mallen'  # 测试环境域名
 HOST_DATA = 'http://data.1lan.tv/log?ts=%d&access_key=%s&udid=%s&m=%s'  # 上报相关域名
 DATA_BEGION = '13149876'
 DATA_END = '98761314'

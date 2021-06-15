@@ -1,7 +1,7 @@
 # coding=utf-8
 # Tools Libs, include generate signature, data encryption and decryption
 # pip install pycryptodome
-
+import logging
 import sys, os
 
 import hashlib
@@ -29,7 +29,6 @@ class Tools(object):
         message = aAesMes
         secret_key = bytes(aAccessToken + str(aTimeStamp), 'utf-8')
         sign = base64.b64encode(hmac.new(secret_key, message, digestmod=hashlib.sha256).digest())
-        # print("\nsignature data:\n%s" % bytes.decode(sign))
         return sign
 
     # 数据加密
@@ -44,13 +43,12 @@ class Tools(object):
         plain_text = bytes(plain_text + chr(amount_to_pad) * amount_to_pad, 'utf-8')
         cryptor = AES.new(key, AES.MODE_CBC, iv)
         en_text = base64.b64encode(cryptor.encrypt(plain_text))
-        # print("\naes encrypt data:\n%s" % (bytes.decode(en_text)))
         return en_text
 
     # 数据解密
     def aes_decrypt(self, aAESData, aToken):
         if aAESData == "":
-            print("the data is empty")
+            logging.warning("the data is empty")
             return []
 
         key = bytes(aToken, 'utf-8')
@@ -59,12 +57,9 @@ class Tools(object):
         cryptor = AES.new(key, AES.MODE_CBC, iv)
         plain_text = cryptor.decrypt(base64.b64decode(en_text))
         plain_text = bytes.decode(plain_text[:-plain_text[-1]])
-        print('\naes decrypt data:')
-        print(plain_text)
-
+        logging.info("aes decrypt data:" + plain_text)
         data_array = json.loads(plain_text)
-        print("\njson_load data:%s" % data_array)
-        print(type(data_array))
+        logging.info("json_load data:" + str(data_array))
         return data_array
 
     # vaas请求各个参数封装
@@ -93,16 +88,13 @@ class Tools(object):
         # 获取参数
         textmessage = self.get_reportparam()
         response = requests.request("POST", aUrl, data=textmessage)
-        print("\nresponse data is: ")
-        print(response.text)
+        logging.info("response data is:" + response.text)
         resDic = json.loads(response.text)
-        print(type(resDic))
         if resDic['code'] == 0 or resDic['code'] == '0':
-            print("\nrequest is ok")
             if 'data' in resDic:
-                return resDic['data']
+                return resDic['msg']
         else:
-            print("\nrequest is fail")
+            logging.fatal("request is fail")
             raise Exception(resDic['msg'])
 
     # 数据上报get url拼接
@@ -126,21 +118,17 @@ class Tools(object):
     def request_v2(self, aToken, aURL, aAccessKey, aTimestamp, aSignature, aAESData):
         payload = '{"access_key": "%s","params": "%s","sign": "%s","timestamp":%d}' % (
             aAccessKey, bytes.decode(aAESData), bytes.decode(aSignature), aTimestamp)
-        print("\nrequest data is:")
-        print(payload)
+        logging.info("request data is:" + payload)
         headers = {"X-YL-KEY": aAccessKey, "X-YL-TIMESTAMP": str(aTimestamp)}
         response = requests.request("POST", aURL, data=payload, headers=headers)
-        print("\nresponse data is: ")
-        print(response.text)
+        logging.info("response data is:" + response.text)
         # 解析返回值
         resDic = json.loads(response.text)
-        print(type(resDic))
         if resDic['code'] == 200 or resDic['code'] == '200':
-            print("\nrequest is ok,will parse the data")
             if 'data' in resDic:
                 return self.aes_decrypt(resDic['data'], aToken)
         else:
-            print("\nrequest is fail")
+            logging.fatal("request is fail" + str(resDic))
             raise Exception(resDic['msg'])
 
     # vaas params拼接
