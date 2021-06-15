@@ -53,16 +53,23 @@
 
 > 代码样例在 vaas-sdk-python 中的 example 文件夹中，[点击查看所有 example](https://github.com/yilanyun/vaas-sdk-python/tree/main/example) 。
 
-> 以下片断来自项目代码里的文件：vaas-sdk-python 中的 example 目录下的 demo_vaas.py和demo_report.py
+> 以下片断来自项目代码里的文件：vaas-sdk-python 中的 example 目录下的 demo_vaas.py
 
 ```
-
+if __name__ == '__main__':
+    # 设置公共参数
+    credentials = credentials.Credentials()
+    credentials.set_key('access_key')
+    credentials.set_token('access_token')
+    credentials.set_pkgname('package_name')
+    credentials.set_platform(2)
+    # 设备唯一标识，客户端生成
+    udid = '5459daf640bdb6a6a7e294a5f3f5f0d1'
+    vaas = vaas.Vaas(udid)
+    # 获取频道数据
+    test_channel(vaas)
 ```
 
 ## 运行代码方式，在根目录下执行
 
 python vaas-sdk-python/example/demo_vaas.py
-
-## 日志说明
-
-logging level 默认的是 WARNING ，为了方便调试建议设置为 DEBUG
