@@ -32,7 +32,7 @@
 
 3.创建过程中，请正确填写应用包名。 对于SDK，建议在“详情页地址”处填写正确的应用下载地址，以便之后进行广告配置以及运营工作。若应用暂未上架，此处可以先填写公司网址。待应用上架后请及时更新；
 
-4.创建完成后，请将创建的应用信息截图发给对接人员，等待应用审核。一览将在3个工作日内审核完成。应用创建后分配access key和access token。
+4.创建完成后，等待应用审核。一览将在3个工作日内审核完成。应用创建后分配access key和access token。
 
 ### ACCESS_KEY/ACCESS_TOKEN在sdk中的使用
 
@@ -64,7 +64,7 @@ if __name__ == '__main__':
     credentials.set_pkgname('package_name')
     credentials.set_platform(2)
     # 设备唯一标识，客户端生成
-    udid = '5459daf640bdb6a6a7e294a5f3f5f0d1'
+    udid = ''
     vaas = vaas.Vaas(udid)
     # 获取频道数据
     test_channel(vaas)
