@@ -13,13 +13,13 @@
 ## 安装（建议）
 
 ```
-    pip install --user vaas-sdk-python
+    pip install --user vaassdk
 ```
 
 如果已经安装vaas-sdk-python包，则用下面命令升级即可
 
 ```
-    pip install --upgrade vaas-sdk-python
+    pip install --upgrade vaassdk
 ```
 
 ## 关于ACCESS_KEY/ACCESS_TOKEN
@@ -43,7 +43,7 @@
     credentials.set_token('access_token')
   ```
 
-- (option 2) 放在配置文件～/.vaas-sdk-python/src/vaas/config.py中，格式为：
+- (option 2) 放在配置文件～/.vaassdk/src/vaas/config.py中，格式为：
   ```
     ACCESS_KEY = 'access_key'
     ACCESS_TOKEN = 'access_token'
@@ -51,9 +51,9 @@
 
 ## 代码样例
 
-> 代码样例在 vaas-sdk-python 中的 example 文件夹中，[点击查看所有 example](https://github.com/yilanyun/vaas-sdk-python/tree/main/example) 。
+> 代码样例在 vaassdk 中的 example 文件夹中，[点击查看所有 example](https://github.com/yilanyun/vaassdk/tree/main/example) 。
 
-> 以下片断来自项目代码里的文件：vaas-sdk-python 中的 example 目录下的 demo_vaas.py
+> 以下片断来自项目代码里的文件：vaassdk 中的 example 目录下的 demo_vaas.py
 
 ```
 if __name__ == '__main__':
@@ -72,4 +72,4 @@ if __name__ == '__main__':
 
 ## 运行代码方式，在根目录下执行
 
-python vaas-sdk-python/example/demo_vaas.py
+python vaassdk/example/demo_vaas.py
