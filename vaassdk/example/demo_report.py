@@ -64,7 +64,7 @@ if __name__ == '__main__':
     credentials = credentials.Credentials()
     credentials.set_key('')
     # 设备唯一标识，客户端生成
-    udid = '5459daf640bdb6a6a7e294a5f3f5f0d1'
+    udid = ''
     report = report.Report(udid)
     # 视频曝光上报
     test_videoshow(report)

@@ -1,9 +1,9 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="vaas-sdk-python",
+    name="vaassdk",
     version="1.0.0",
-    description="vaas-sdk",
+    description="vaassdk",
     author="yilan",
     url="https://github.com/yilanyun/vaas-sdk-python.git",
     packages=find_packages()

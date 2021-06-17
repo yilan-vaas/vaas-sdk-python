@@ -107,7 +107,7 @@ if __name__ == '__main__':
     credentials.set_pkgname('')
     credentials.set_platform(2)
     # 设备唯一标识，客户端生成
-    udid = '5459daf640bdb6a6a7e294a5f3f5f0d1'
+    udid = ''
     vaas = vaas.Vaas(udid)
     # 获取频道数据
     test_channel(vaas)
