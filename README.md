@@ -1,4 +1,4 @@
-# vaas-sdk-python
+# vaassdk
 
 ## 概述
 
@@ -16,7 +16,7 @@
     pip install --user vaassdk
 ```
 
-如果已经安装vaas-sdk-python包，则用下面命令升级即可
+如果已经安装vaassdk包，则用下面命令升级即可
 
 ```
     pip install --upgrade vaassdk
