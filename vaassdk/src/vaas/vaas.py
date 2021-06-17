@@ -1,7 +1,6 @@
 # all vaas api service
-import tools
-import config
-
+from vaassdk.src.vaas import tools
+from vaassdk.src.vaas import config
 
 class Vaas():
     def __init__(self, udid):

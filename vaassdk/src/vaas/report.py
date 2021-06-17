@@ -1,9 +1,8 @@
 # report info service
 import json
-
-import tools
-import config
 import time
+from vaassdk.src.vaas import tools
+from vaassdk.src.vaas import config
 
 
 class Report():
@@ -21,7 +20,8 @@ class Report():
 
     # 点击播放上报
     def videoplay(self, videoid, referpage):
-        body = '{"videoid": "%s", "referpage": "%s", "taskid": "%d"}' % (videoid, referpage, int(round(time.time() * 1000)))
+        body = '{"videoid": "%s", "referpage": "%s", "taskid": "%d"}' % (
+        videoid, referpage, int(round(time.time() * 1000)))
         input = {'event': 'videoplay', 'body': json.loads(body)}
         self.tool.set_input(input)
         ret = self.tool.request_report(self.url)
@@ -30,7 +30,7 @@ class Report():
     # 播放时长上报
     def videoplaytm(self, videoid, bt, et, rt):
         body = '{"videoid": "%s", "taskid": "%s", "bt": "%d", "et": "%d", "rt": "%d"}' % (
-        videoid, int(round(time.time() * 1000)), bt, et, rt)
+            videoid, int(round(time.time() * 1000)), bt, et, rt)
         input = {'event': 'videoplaytm', 'body': json.loads(body)}
         self.tool.set_input(input)
         ret = self.tool.request_report(self.url)

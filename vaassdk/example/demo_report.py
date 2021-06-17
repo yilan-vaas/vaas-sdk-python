@@ -1,10 +1,8 @@
 # encoding: utf-8
 import sys
-
 # 测试模块
-sys.path.append('../src/vaas/')
-import report
-import credentials
+from vaassdk.src.vaas import report
+from vaassdk.src.vaas import credentials
 
 
 def test_videoshow(report):

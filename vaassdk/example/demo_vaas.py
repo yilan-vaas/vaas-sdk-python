@@ -1,12 +1,7 @@
 # encoding: utf-8
-import logging
-import sys
-
 # 测试模块
-sys.path.append('../src/vaas/')
-import vaas
-import report
-import credentials
+from vaassdk.src.vaas import credentials
+from vaassdk.src.vaas import vaas
 
 
 def test_channel(vaas):

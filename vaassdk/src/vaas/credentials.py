@@ -1,6 +1,6 @@
 # encoding: utf-8
 # set key、token、pkg_name、platform
-import config
+from vaassdk.src.vaas import config
 
 
 class Credentials(object):

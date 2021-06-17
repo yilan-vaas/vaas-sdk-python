@@ -11,7 +11,7 @@ import json
 import requests
 from Crypto.Cipher import AES
 import time
-import config
+from vaassdk.src.vaas import config
 
 
 class Tools(object):
