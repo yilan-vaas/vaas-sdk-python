@@ -1,13 +1,13 @@
 # encoding: utf-8
 # 测试模块
-from vaassdk.src.vaas import credentials
-from vaassdk.src.vaas import vaas
+from vaassdk.src.vaas.credentials import Credentials
+from vaassdk.src.vaas.vaas import Vaas
 
 
 def test_channel(vaas):
     print("\n ###获取频道数据### \n")
     try:
-        channels = vaas.channels()
+        channels = vaas.getchannels()
     except Exception:
         raise
     else:
@@ -21,7 +21,7 @@ def test_feed(vaas):
     load_type = 0  # 拉取类型0-上拉，1-下拉，2-首次刷新（非必传，默认0）
     size = 8  # 页大小，范围 1～8（非必传，默认8）
     try:
-        feed = vaas.feed(video_type, channel_id, load_type, size)
+        feed = vaas.getfeed(video_type, channel_id, load_type, size)
     except Exception:
         raise
     else:
@@ -33,7 +33,7 @@ def test_relation(vaas):
     id = 'Jy8nbGGXEJjR'  # 视频ID
     size = 20  # 页大小，范围 1～20（非必传，默认20）
     try:
-        relation = vaas.relation(id, size)
+        relation = vaas.getrelation(id, size)
     except Exception:
         raise
     else:
@@ -46,7 +46,7 @@ def test_cpinfo(vaas):
     video_type = 1  # 视频类型横屏1，竖屏2
     # video_type = 2
     try:
-        cpInfo = vaas.cpinfo(id, video_type)
+        cpInfo = vaas.getcpinfo(id, video_type)
     except Exception:
         raise
     else:
@@ -60,7 +60,7 @@ def test_detail(vaas):
     # ids = 'eJMeOJN9B5KX,ZVjkOgN0WjGp'
     # video_type = 2
     try:
-        detail = vaas.detail(ids, video_type)
+        detail = vaas.getvideos(ids, video_type)
     except Exception:
         raise
     else:
@@ -76,7 +76,7 @@ def test_cpvideos(vaas):
     # id = 'RJj017XJvx58'
     # video_type = 2
     try:
-        cpVideos = vaas.cpvideos(id, video_type)
+        cpVideos = vaas.getcpvideos(id, video_type)
     except Exception:
         raise
     else:
@@ -87,7 +87,7 @@ def test_play(vaas):
     print("\n ###获取播放数据### \n")
     id = 'njz3Dn7N1r5V'  # 视频ID
     try:
-        plays = vaas.play(id)
+        plays = vaas.getplay(id)
     except Exception:
         raise
     else:
@@ -96,14 +96,9 @@ def test_play(vaas):
 
 if __name__ == '__main__':
     # 设置公共参数
-    credentials = credentials.Credentials()
-    credentials.set_key('')
-    credentials.set_token('')
-    credentials.set_pkgname('')
-    credentials.set_platform(2)
+    credentials = Credentials('ak', 'token', 'pkg', 'platform')
     # 设备唯一标识，客户端生成
-    udid = ''
-    vaas = vaas.Vaas(udid)
+    vaas = Vaas('udid')
     # 获取频道数据
     test_channel(vaas)
     # 获取视频信息流数据

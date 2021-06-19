@@ -1,8 +1,8 @@
 # encoding: utf-8
 import sys
 # 测试模块
-from vaassdk.src.vaas import report
-from vaassdk.src.vaas import credentials
+from vaassdk.src.vaas.report import Report
+from vaassdk.src.vaas.credentials import Credentials
 
 
 def test_videoshow(report):
@@ -59,11 +59,9 @@ def test_videofeedback(report):
 
 if __name__ == '__main__':
     # 设置公共参数
-    credentials = credentials.Credentials()
-    credentials.set_key('')
+    credentials = Credentials('ak', 'token', 'pkg', 'platform')
     # 设备唯一标识，客户端生成
-    udid = ''
-    report = report.Report(udid)
+    report = Report('udid')
     # 视频曝光上报
     test_videoshow(report)
     # 点击播放上报
