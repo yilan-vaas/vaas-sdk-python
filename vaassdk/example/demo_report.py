@@ -59,7 +59,7 @@ def test_videofeedback(report):
 
 if __name__ == '__main__':
     # 设置公共参数
-    credentials = Credentials('ak', 'token', 'pkg', 'platform')
+    Credentials('ak', 'token', 'pkg', 'platform')
     # 设备唯一标识，客户端生成
     report = Report('udid')
     # 视频曝光上报

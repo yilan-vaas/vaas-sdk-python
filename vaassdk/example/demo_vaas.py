@@ -96,7 +96,7 @@ def test_play(vaas):
 
 if __name__ == '__main__':
     # 设置公共参数
-    credentials = Credentials('ak', 'token', 'pkg', 'platform')
+    Credentials('ak', 'token', 'pkg', 'platform')
     # 设备唯一标识，客户端生成
     vaas = Vaas('udid')
     # 获取频道数据

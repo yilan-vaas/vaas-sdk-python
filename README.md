@@ -4,7 +4,7 @@
 
 这是 VAAS API 的 Python 版本封装开发包，由一览科技官方提供，一般支持最新的 API 功能。
 
-对应的 REST API 文档：<https://www.yuque.com/yilanyun/rfx7o4/oxt3td/>
+对应的 REST API 文档：<http://doc.yilan.tv/feedv2/server/api/video_flow>
 
 ## 兼容版本
 
@@ -37,10 +37,8 @@
 ### ACCESS_KEY/ACCESS_TOKEN在sdk中的使用
 
 - (option 1 推荐) 在代码里显示调用方法set_key/set_token，例：
-  ```python
-    credentials = credentials.Credentials()
-    credentials.set_key('access_key')
-    credentials.set_token('access_token')
+  ```
+    Credentials('access_key','access_token','pkg_name','platform')
   ```
 
 - (option 2) 放在配置文件～/.vaassdk/src/vaas/config.py中，格式为：
@@ -58,11 +56,7 @@
 ```
 if __name__ == '__main__':
     # 设置公共参数
-    credentials = credentials.Credentials()
-    credentials.set_key('access_key')
-    credentials.set_token('access_token')
-    credentials.set_pkgname('package_name')
-    credentials.set_platform(2)
+    Credentials('ak', 'token', 'pkg', 'platform')
     # 设备唯一标识，客户端生成
     udid = ''
     vaas = vaas.Vaas(udid)
