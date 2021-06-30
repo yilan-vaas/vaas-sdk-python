@@ -133,8 +133,7 @@ class Tools(object):
     # vaas params拼接
     def get_vaasparam(self):
         # 公共入参
-        # defult = {'udid': self.udid, 'pkg_name': config.PKG_NAME, 'platform': config.PLATFORM}
-        defult = {'udid': self.udid, 'pkg_name': config.PKG_NAME, 'platform': config.PLATFORM, 'access_key': config.ACCESS_KEY}
+        defult = {'udid': self.udid, 'pkg_name': config.PKG_NAME, 'platform': config.PLATFORM}
         # 方法传参
         input = self.dict
         input.update(defult)

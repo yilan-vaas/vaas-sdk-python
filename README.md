@@ -4,7 +4,7 @@
 
 这是 VAAS API 的 Python 版本封装开发包，由一览科技官方提供，一般支持最新的 API 功能。
 
-对应的 REST API 文档：<http://doc.yilan.tv/feedv2/server/api/video_flow>
+对应的 REST API 文档：<https://docs.vaas.cn/feedv2/server/api/video_flow>
 
 ## 兼容版本
 
