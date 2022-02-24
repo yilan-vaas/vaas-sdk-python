@@ -20,7 +20,9 @@ class Vaas():
         ret = self.tool.request_api(self.unplay + config.RELATION)
         return ret
 
-    def getchannels(self):
+    def getchannels(self, video_type=1):
+        input = {'video_type': video_type}
+        self.tool.set_input(input)
         ret = self.tool.request_api(self.unplay + config.CHANNELS)
         return ret
 

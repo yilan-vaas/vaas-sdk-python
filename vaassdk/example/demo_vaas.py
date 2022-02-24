@@ -6,8 +6,9 @@ from vaassdk.src.vaas.vaas import Vaas
 
 def test_channel(vaas):
     print("\n ###获取频道数据### \n")
+    video_type = 1  # 视频类型横屏1，竖屏2
     try:
-        channels = vaas.getchannels()
+        channels = vaas.getchannels(video_type)
     except Exception:
         raise
     else:
